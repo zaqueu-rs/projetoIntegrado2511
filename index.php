@@ -1,6 +1,6 @@
     <!--Usada para incorporar código PHP neste aquivo.  -->
 <?php
-require_once 'classes/cadrastrarlivro.php';
+require_once 'classes/cadastrarlivro.php';
 $l = new livro;
 ?>
 
@@ -46,12 +46,12 @@ $l = new livro;
             && !empty ($ano_l) && !empty ($preco_l) && !empty ($quant_l) && !empty ($tipo_l))
             {
                 
-                $u->conectar("login_livrariapjt","localhost","root",""); 
+                $l->conectar("login_livrariapjt","localhost","root",""); 
                 if($l->msgErro == "")//Se a mensagem de erro estiver vazia estar tudo certo.
                 {
                     if($u->cadastrar($edtora,$titulo_l,$autor_l,$ano_l,$preco_l,$quant_l,$tipo_l))
                     {
-                        echo "Cadastrado com sucesso!;
+                        echo "Cadastrado com sucesso!";
                     } 
                     else{
                         echo "Livro já cadastrado";
@@ -60,8 +60,9 @@ $l = new livro;
                 else {
                 echo "Erro:" .$l->msgErro;
                 } 
-        else{
-            <!-- Informa ao usuário que falta preencher um campo ainda!-->
+            }
+            else{
+            //<!-- Informa ao usuário que falta preencher um campo ainda!-->
 
             echo "Preencha todos os campos!";
             }
